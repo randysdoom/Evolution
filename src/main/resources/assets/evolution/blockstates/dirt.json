@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "variants":
+  {
+    "snowy=false,variant=podzol": [{ "model": "minecraft:podzol" }],
+    "snowy=true,variant=podzol": [{ "model": "minecraft:grass_snowed" }],
+    "variant=coarse_dirt": [{ "model": "minecraft:coarse_dirt" }],
+    "variant=dirt": [{ "model": "minecraft:dirt" }]
+  }
+}

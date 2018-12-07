@@ -1,0 +1,78 @@
+#~~~~~~~~~~~~~~~~~~~~Creative Tab Names~~~~~~~~~~~~~~~~~~~~#
+
+itemGroup.Blocks=Blocks (Evolution)
+itemGroup.Items=Items (Evolution)
+itemGroup.Ores=Ores (Evolution)
+itemGroup.Misc=Miscellaneous (Evolution)
+
+#~~~~~~~~~~~~~~~~~~~~Block Names and Descriptions~~~~~~~~~~~~~~~~~~~~#
+
+ore.copper.overworld.name=Copper Ore
+ore.copper.nether.name=Nether Copper Ore
+ore.tin.overworld.name=Tin Ore
+ore.tin.nether.name=Nether Tin Ore
+ore.lead.overworld.name=Lead Ore
+ore.lead.nether.name=Nether Lead Ore
+ore.silver.overworld.name=Silver Ore
+ore.silver.nether.name=Nether Silver Ore
+ore.nickel.overworld.name=Nickel Ore
+ore.nickel.nether.name=Nether Nickel Ore
+compost_bin.name=Compost Bin
+bonfire.name=Bonfire
+firepit.name=Fire Pit
+machine.casing.name=Machine Casing
+
+#~~~~~~~~~~~~~~~~~~~~Item Names and Descriptions~~~~~~~~~~~~~~~~~~~~#
+
+item.tinder.name=Tinder
+item.constructed_tool.name=Constructed Tool
+item.documentation.name=In-Game Documentation
+item.debug.name=Debug Item
+
+item.dust.stone.name=Stone Dust
+item.dust.charcoal.name=Charcoal Dust
+item.dust.coal.name=Coal Dust
+item.dust.copper.name=Copper Dust
+item.dust.tin.name=Tin Dust
+item.dust.iron.name=Iron Dust
+item.dust.lead.name=Lead Dust
+item.dust.silver.name=Silver Dust
+item.dust.diamond.name=Diamond Dust
+item.dust.emerald.name=Emerald Dust
+
+#~~~~~~~~~~~~~~~~~~~~Gui Titles and Elements~~~~~~~~~~~~~~~~~~~~#
+
+
+
+#~~~~~~~~~~~~~~~~~~~~Block and Tile Entity Messages~~~~~~~~~~~~~~~~~~~~#
+
+message.storage.empty=This barrel is empty.
+message.storage.full=This barrel is full.
+message.storage.invalid=This item is not valid for this storage block.
+message.storage.failure=Failed to modify inventory of Block: %s{ X: %s, Y: %s, Z: %s }
+message.storage.insufficient=The Player does not have enough of the specified item to transfer to block inventory. Stored Item: %s
+message.storage.upgrade.success=This storage block has successfully been upgraded.
+message.storage.upgrade.failure.slot=This barrel has failed to be upgraded, because it does not have enough upgrade slots for the given upgrade.
+message.storage.upgrade.failure.unknown=This barrel has failed to be upgraded, because of an unknown reason.
+
+#~~~~~~~~~~~~~~~~~~~~Item Messages~~~~~~~~~~~~~~~~~~~~#
+
+
+
+#~~~~~~~~~~~~~~~~~~~~Config Localization~~~~~~~~~~~~~~~~~~~~#
+
+debug_logging.name=Debug Logging Enabled
+debug_logging.comment=Enables Advanced Logging.
+
+debug_manipulation.name=Debug Data Manipulation Enabled
+debug_manipulation.comment=Enables Manipulation of Data within Minecraft.
+
+custom_health_bar.name=Use Custom Health Bar
+
+#~~~~~~~~~~~~~~~~~~~~In-Game Documentation Localization~~~~~~~~~~~~~~~~~~~~#
+
+documentation.index=Index
+documentation.invalid=This version of the Evolution mod does not have proper documentation.
+documentation.placeholder=This is a placeholder string.
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#

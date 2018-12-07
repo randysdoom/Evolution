@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults":
+  {
+    "model": "cube_all",
+    "transform": "forge:default-block"
+  },
+  "variants":
+  {
+    "ore":
+    {
+      "copper": { "textures": { "all": "evolution:blocks/ore/copper/overworld" } },
+      "tin": { "textures": { "all": "evolution:blocks/ore/tin/overworld" } },
+      "lead": { "textures": { "all": "evolution:blocks/ore/lead/overworld" } },
+      "silver": { "textures": { "all": "evolution:blocks/ore/silver/overworld" } },
+      "nickel": { "textures": { "all": "evolution:blocks/ore/nickel/overworld" } }
+    }
+  }
+}

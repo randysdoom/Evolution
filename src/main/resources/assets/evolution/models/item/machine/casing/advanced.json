@@ -1,0 +1,7 @@
+{
+  "parent": "evolution:block/machine/casing",
+  "textures":
+  {
+    "type": "minecraft:blocks/iron_block"
+  }
+}

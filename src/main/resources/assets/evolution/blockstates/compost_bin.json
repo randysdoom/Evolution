@@ -1,0 +1,7 @@
+{
+  "variants":
+  {
+    "inventory": { "model": "item/generated" },
+    "normal": { "model": "evolution:compost_bin" }
+  }
+}

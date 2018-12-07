@@ -1,0 +1,56 @@
+==========
+
+[NS] = Work on Feature has not started yet
+[PO] = Possible Feature
+[IC] = Incomplete Feature
+[CP] = Completed Feature
+[CF] = Configurable Feature
+[^] = Same as Parent Feature
+[NF] = Not-Functional Feature - YET
+[X] = Scrapped Feature
+
+==========
+
+[NS]: Complete Modularity (Everything Enableable & Disableable via Config)
+
+[NS]: Cooking Fire
+  [NS]: Cooking Recipes
+  [PO]: Able to add a cook top to increase speed at which food cooks
+  [PO]: Able to add a cooking pot to the Fire to allow Soups & Stews
+
+[PI]: Bonfire
+  [PO]: Increased Health Regeneration when nearby
+  [PO]: Reduced Hunger usage when nearby
+
+[PI]: Fire Pit
+  [PO]: Early material processing
+
+[PI]: Naming Bench (Replaces Vanilla Anvil block naming function)
+  [IC]: Functional GUI and Container
+
+[PI]: Repair Table (Replaces Vanilla Anvil block repair function)
+  [IC]: Functional GUI and Container
+
+[PI]: Tool Smith (Used to create tools (Similar to TiCon tools))
+  [IC]: Functional GUI and Container
+
+[PI]: Tool Augmentation Table
+  [IC]: Functional GUI and Container
+  [PO]: Modifiable Vanilla Tools
+
+[NS]: Rewrite Villages
+  [NS]: Per-Village Reputation
+    [NS]: Hostility & Friendliness based on Reputation
+  [NS]: Inter-Village trading
+  [NS]: Village Quests
+  [NS]: Ability to establish new Villages
+
+[PO]: Add sleeping mechanic similar to how Somnia used to work
+
+[PO]: Barrels (Same functionality as JABBA barrels)
+  [PO]: Upgradeable
+
+[NS]: Inter-Mod Compatibility
+  [NS]: Pam's HarvestCraft Compatibility
+  [NS]: Industrialcraft Compatibility
+  [NS]: COFH Mods Compatibility

@@ -1,0 +1,33 @@
+{
+  "forge_marker": 1,
+  "defaults":
+  {
+    "textures": { "log_texture": "blocks/log_oak" },
+    "transform": "forge:default-block"
+  },
+  "variants":
+  {
+    "inventory": { "model": "builtin/generated" },
+    "burning": { "true": {}, "false": {} },
+    "burned": { "true": {}, "false": {} },
+    "progress":
+    {
+      "0": { "submodel": "evolution:fire_log/0" },
+      "1": { "submodel": "evolution:fire_log/1" },
+      "2": { "submodel": "evolution:fire_log/2" },
+      "3": { "submodel": "evolution:fire_log/3" },
+      "4": { "submodel": "evolution:fire_log/4" },
+      "5": { "submodel": "evolution:fire_log/5" },
+      "6": { "submodel": "evolution:fire_log/6" },
+      "7": { "submodel": "evolution:fire_log/7" },
+      "8": { "submodel": "evolution:fire_log/8" },
+      "9": { "submodel": "evolution:fire_log/9" },
+      "10": { "submodel": "evolution:fire_log/10" },
+      "11": { "submodel": "evolution:fire_log/11" },
+      "12": { "submodel": "evolution:fire_log/12" },
+      "13": { "submodel": "evolution:fire_log/13" },
+      "14": { "submodel": "evolution:fire_log/14" },
+      "15": { "submodel": "evolution:fire_log/15" }
+    }
+  }
+}

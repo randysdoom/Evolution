@@ -1,0 +1,15 @@
+{
+  "defaults":
+  {
+    "model": "evolution:block/bonfire"
+  },
+  "variants":
+  {
+    "inventory": { "model": "builtin/generated" },
+    "lit":
+    {
+      "true": { "textures": { "logs": "evolution:blocks/bonfire_log_lit" } },
+      "false": { "textures": { "logs": "evolution:blocks/bonfire_log" } }
+    }
+  }
+}
