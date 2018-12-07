@@ -40,6 +40,11 @@ item.dust.silver.name=Silver Dust
 item.dust.diamond.name=Diamond Dust
 item.dust.emerald.name=Emerald Dust
 
+item.ingot.copper.name=Copper Ingot
+item.ingot.tin.name=Tin Ingot
+item.ingot.lead.name=Lead Ingot
+item.ingot.silver.name=Silver Ingot
+
 #~~~~~~~~~~~~~~~~~~~~Gui Titles and Elements~~~~~~~~~~~~~~~~~~~~#
 
 
