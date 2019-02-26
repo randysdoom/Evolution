@@ -1,0 +1,6 @@
+{
+  "parent": "evolution:machine/casing",
+  "textures": {
+    "type": "minecraft:blocks/oak_planks"
+  }
+}

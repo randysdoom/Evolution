@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
   "textures":
   {
-    "all": "evolution:blocks/ore/copper/overworld"
+    "all": "evolution:block/ore/copper/overworld"
   }
 }

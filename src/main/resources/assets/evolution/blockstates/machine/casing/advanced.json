@@ -1,0 +1,8 @@
+{
+  "defaults": {
+    "model": "evolution:block/machine/casing/advanced"
+  },
+  "variants": {
+    "": {}
+  }
+}

@@ -2,6 +2,6 @@
   "parent": "block/cube_all",
   "textures":
   {
-    "all": "evolution:blocks/ore/nickel/nether"
+    "all": "evolution:block/ore/nickel/nether"
   }
 }

@@ -1,94 +1,53 @@
 buildscript {
     repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
 
-version = mod_ver
-group = mod_group
-archivesBaseName = mod_basename
+version = '1.0'
+group = 'com.randysdoom.evolution'
+archivesBaseName = 'evolution'
 
-targetCompatibility = 1.8
-sourceCompatibility = 1.8
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
-ext.configFile = file "gradle.properties"
-
-configFile.withReader
-{
-    def prop = new Properties()
-    prop.load(it)
-    project.ext.config = new ConfigSlurper().parse prop
-}
-
-minecraft
-{
-    version = mc_ver + "-" + forge_ver
-    runDir = "run"
-    mappings = forge_mappings_ver
-}
-
-repositories
-{
-    maven { // The Repo to grab JEI
-        name = "JEI"
-        url = "http://dvs1.progwml6.com/files/maven"
-    }
-
-    maven { // The Repo to grab Waila
-        name = "Mobius Repo"
-        url = "http://mobiusstrip.eu/maven"
-    }
-
-    maven { // The Repo to grab CodeChickenLib and CodeChickenCore
-        name = "CB Repo"
-        url = "http://chickenbones.net/maven"
-    }
-
-    maven { // The Repo to grab IC2
-        name = "IC2"
-        url = "http://maven.ic2.player.to/"
+minecraft {
+    mappings channel: 'snapshot', version: '20180921-1.13'
+    
+    runs {
+        client = {
+            properties 'forge.logging.markers': 'SCAN,REGISTRIES,REGISTRYDUMP'
+            properties 'forge.logging.console.level': 'debug'
+            workingDirectory project.file('run').canonicalPath
+            source sourceSets.main
+        }
+        server = {
+            properties 'forge.logging.markers': 'SCAN,REGISTRIES,REGISTRYDUMP'
+            properties 'forge.logging.console.level': 'debug'
+            workingDirectory project.file('run').canonicalPath
+            source sourceSets.main
+        }
     }
 }
 
-dependencies 
-{
-    //Compile JEI for Dev
-    deobfCompile config.jei_name + config.jei_ver + ":api"
-    runtime config.jei_name + config.jei_ver
-
-    //Compile WAILA for Dev
-    //deobfCompile config.waila_name + config.waila_ver
-
-    //Compile CodeChickenLib and CodeChickenCore for Dev
-    compile config.ccl_depend_name + config.ccl_depend_ver + ":deobf"
-    runtime config.ccl_depend_name + config.ccl_depend_ver
-
-    //compile config.ccc_depend_name + config.ccc_depend_ver + ":deobf"
-
-    //Compile IC2 for Dev
-    compile config.ic2_name + config.ic2_ver
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.13.2-25.0.58'
 }
 
-processResources {
-    // this will ensure that this task is redone when the versions change.
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    // replace stuff in mcmod.info, nothing else
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
-    }
-        
-    // copy everything else except the mcmod.info
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
+jar {
+    manifest {
+        attributes(["Specification-Title": "evolution",
+                    "Specification-Vendor": "https://github.com/randysdoom/Evolution/",
+                    "Specification-Version": "24.0", // We are version 1 of the modlauncher specification
+                    "Implementation-Title": project.name,
+                    "Implementation-Version": "${version}",
+                    "Implementation-Vendor" :"https://github.com/randysdoom/Evolution/",
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")],)
     }
 }

@@ -1,0 +1,88 @@
+{
+  "itemGroup.Evolution": "Evolution",
+  "block.compost_bin.name": "Compost Bin",
+  "block.bonfire.name": "Bonfire",
+  "block.firepit.name": "Fire Pit",
+  "block.machine.casing.basic.name": "Machine Casing (Basic)",
+  "block.machine.casing.intermediate.name": "Machine Casing (Intermediate)",
+  "block.machine.casing.advanced.name": "Machine Casing (Advanced)",
+  "block.machine.casing.complex.name": "Machine Casing (Complex)",
+  "block.ore.overworld.bauxite.name": "Bauxite Ore",
+  "block.ore.overworld.copper.name": "Copper Ore",
+  "block.ore.overworld.tin.name": "Tin Ore",
+  "block.ore.overworld.zinc.name": "Zinc Ore",
+  "block.ore.overworld.lead.name": "Lead Ore",
+  "block.ore.overworld.silver.name": "Silver Ore",
+  "block.ore.overworld.nickel.name": "Nickel Ore",
+  "block.ore.nether.bauxite.name": "Nether Bauxite Ore",
+  "block.ore.nether.copper.name": "Nether Copper Ore",
+  "block.ore.nether.tin.name": "Nether Tin Ore",
+  "block.ore.nether.zinc.name": "Nether Zinc Ore",
+  "block.ore.nether.lead.name": "Nether Lead Ore",
+  "block.ore.nether.silver.name": "Nether Silver Ore",
+  "block.ore.nether.nickel.name": "Nether Nickel Ore",
+  "item.tinder.name": "Tinder",
+  "item.constructed_tool.name": "Constructed Tool",
+  "item.documentation.name": "In-Game Documentation",
+  "item.debug.name": "Debugger",
+  "item.material.dust.stone.name": "Stone Dust",
+  "item.material.dust.charcoal.name": "Charcoal Dust",
+  "item.material.dust.coal.name": "Coal Dust",
+  "item.material.dust.bauxite.name": "Bauxite Dust",
+  "item.material.dust.copper.name": "Copper Dust",
+  "item.material.dust.tin.name": "Tin Dust",
+  "item.material.dust.bronze.name": "Bronze Dust",
+  "item.material.dust.zinc.name": "Zinc Dust",
+  "item.material.dust.iron.name": "Iron Dust",
+  "item.material.dust.lead.name": "Lead Dust",
+  "item.material.dust.silver.name": "Silver Dust",
+  "item.material.dust.gold.name": "Gold Dust",
+  "item.material.dust.diamond.name": "Diamond Dust",
+  "item.material.dust.emerald.name": "Emerald Dust",
+  "item.material.ingot.copper.name": "Copper Ingot",
+  "item.material.ingot.tin.name": "Tin Ingot",
+  "item.material.ingot.lead.name": "Lead Ingot",
+  "item.material.ingot.silver.name": "Silver Ingot",
+  "message.storage.empty": "This barrel is empty.",
+  "message.storage.full": "This barrel is full.",
+  "message.storage.invalid": "This item is not valid for this storage block.",
+  "message.storage.failure": "Failed to modify inventory of Block: %s{ X: %s, Y: %s, Z: %s }",
+  "message.storage.insufficient": "The Player does not have enough of the specified item to transfer to block inventory. Stored Item: %s",
+  "message.storage.upgrade.success": "This storage block has successfully been upgraded.",
+  "message.storage.upgrade.failure.slot": "This barrel has failed to be upgraded, because it does not have enough upgrade slots for the given upgrade.",
+  "message.storage.upgrade.failure.unknown": "This barrel has failed to be upgraded, because of an unknown reason.",
+  "debug_logging.name": "Debug Logging Enabled",
+  "debug_logging.comment": "Enables Advanced Logging.",
+  "debug_manipulation.name": "Debug Data Manipulation Enabled",
+  "debug_manipulation.comment": "Enables Manipulation of Data within Minecraft.",
+  "custom_health_bar.name": "Use Custom Health Bar",
+  "documentation.index": "Index",
+  "documentation.invalid": "This version of the Evolution mod does not have proper documentation.",
+  "documentation.placeholder": "This is a placeholder string."
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

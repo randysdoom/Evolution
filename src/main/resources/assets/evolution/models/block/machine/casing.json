@@ -1,11 +1,11 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "top": "evolution:blocks/machine/frame/top",
-    "bottom": "evolution:blocks/machine/frame/bottom",
-    "side": "evolution:blocks/machine/frame/side",
-    "type": "minecraft:blocks/iron_block",
-    "particle": "evolution:blocks/machine/frame/side"
+    "top": "evolution:block/machine/frame/top",
+    "bottom": "evolution:block/machine/frame/bottom",
+    "side": "evolution:block/machine/frame/side",
+    "type": "minecraft:block/iron_block",
+    "particle": "evolution:block/machine/frame/side"
   },
   "elements": [
     {

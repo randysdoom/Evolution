@@ -2,6 +2,6 @@
   "parent": "builtin/generated",
   "textures":
   {
-    "layer0": "evolution:items/debug"
+    "layer0": "evolution:item/debug"
   }
 }
