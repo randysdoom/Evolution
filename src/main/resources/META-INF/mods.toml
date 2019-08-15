@@ -1,23 +1,18 @@
-modLoader="javafml" #mandatory
-loaderVersion="[24,)" #mandatory (24 is current forge version)
-issueTrackerURL="https://github.com/randysdoom/Evolution/issues" #optional
-displayURL="http://example.com/" #optional
-logoFile="examplemod.png" #optional
-credits="Thanks for this example mod goes to Java" #optional
-authors="Love, Cheese and small house plants" #optional
-[[mods]] #mandatory
-modId="evolution" #mandatory
-version="1.0.0" #mandatory
-displayName="Evolution" #mandatory
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/randysdoom/Evolution/issues"
+displayURL="http://example.com/"
+logoFile="examplemod.png"
+credits="A Trip Through The Ages"
+authors="Randysdoom"
+[[mods]]
+modId="evolution"
+version="1.0.0"
+displayName="Evolution"
 description='''A trip through the ages.'''
-[[dependencies.evolution]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[24,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+[[dependencies.evolution]]
+    modId="forge"
+    mandatory=true
+    versionRange="[24,)"
     ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"

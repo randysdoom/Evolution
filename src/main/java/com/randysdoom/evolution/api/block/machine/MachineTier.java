@@ -1,8 +1,9 @@
 package com.randysdoom.evolution.api.block.machine;
 
+import com.randysdoom.evolution.api.block.IVariant;
 import net.minecraft.util.IStringSerializable;
 
-public enum MachineTier implements IStringSerializable
+public enum MachineTier implements IStringSerializable, IVariant
 {
     BASIC(0, "basic"),
     INTERMEDIATE(1, "intermediate"),
@@ -18,13 +19,14 @@ public enum MachineTier implements IStringSerializable
         this.tierName = tierName;
     }
 
-    public int getTierID()
+    public int getInt()
     {
-        return tierID;
+        return this.tierID;
     }
 
     public String getName()
     {
-        return tierName;
+        return this.tierName;
     }
+
 }

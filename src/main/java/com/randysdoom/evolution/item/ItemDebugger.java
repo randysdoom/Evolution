@@ -1,12 +1,11 @@
 package com.randysdoom.evolution.item;
 
 import com.randysdoom.evolution.item.base.ModItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.Hand;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 public class ItemDebugger extends ModItem
@@ -14,11 +13,11 @@ public class ItemDebugger extends ModItem
 
     public ItemDebugger()
     {
-        super(new Item.Properties(), "debug");
+        super(new Properties(), "debug");
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
     {
 //        if(!worldIn.isRemote)
 //        {
@@ -35,13 +34,16 @@ public class ItemDebugger extends ModItem
 //            playerIn.sendMessage(getString("Willpower", attr.getWillpowerLevel(), attr.getWillpowerExperience()));
 //            playerIn.sendMessage(getString("Wisdom", attr.getWisdomLevel(), attr.getWisdomExperience()));
 //        }
-        if(!worldIn.isRemote){ playerIn.sendMessage(new TextComponentString("Right Click!")); }
+        if (!worldIn.isRemote)
+        {
+            playerIn.sendMessage(new StringTextComponent("Right Click!"));
+        }
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
 
-    private TextComponentString getString(String ATTR_NAME, int ATTR_LEVEL, int ATTR_EXP)
+    private StringTextComponent getString(String ATTR_NAME, int ATTR_LEVEL, int ATTR_EXP)
     {
-        return new TextComponentString(String.format("%s Values: { Level: %s/100, Experience: %s/%s }", ATTR_NAME, ATTR_LEVEL, ATTR_EXP, ATTR_LEVEL > 1 ? (int)((25 * ATTR_LEVEL) * 1.25) : 25));
+        return new StringTextComponent(String.format("%s Values: { Level: %s/100, Experience: %s/%s }", ATTR_NAME, ATTR_LEVEL, ATTR_EXP, ATTR_LEVEL > 1 ? (int) ((25 * ATTR_LEVEL) * 1.25) : 25));
     }
 
 }

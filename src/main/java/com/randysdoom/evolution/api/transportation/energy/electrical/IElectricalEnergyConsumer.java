@@ -1,6 +1,6 @@
 package com.randysdoom.evolution.api.transportation.energy.electrical;
 
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 
 public interface IElectricalEnergyConsumer extends IElectricalEnergyStorage
 {
@@ -11,6 +11,6 @@ public interface IElectricalEnergyConsumer extends IElectricalEnergyStorage
 
     boolean canRecieveEnergy();
 
-    boolean canRecieveEnergy(EnumFacing direction);
+    boolean canRecieveEnergy(Direction direction);
 
 }

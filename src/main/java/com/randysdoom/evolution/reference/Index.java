@@ -2,7 +2,7 @@ package com.randysdoom.evolution.reference;
 
 import com.randysdoom.evolution.api.block.machine.MachineTier;
 import com.randysdoom.evolution.block.OreBlock;
-import com.randysdoom.evolution.block.base.BlockMod;
+import com.randysdoom.evolution.block.base.ModBlock;
 import com.randysdoom.evolution.block.machine.BlockGrinder;
 import com.randysdoom.evolution.block.machine.BlockMachineCasing;
 import com.randysdoom.evolution.entity.tile.TileEntityGrinder;
@@ -39,14 +39,14 @@ public class Index
         OVERWORLD_TIN_ORE(new OreBlock("overworld", "tin")),
         OVERWORLD_ZINC_ORE(new OreBlock("overworld", "zinc"));
 
-        private BlockMod block;
+        private ModBlock block;
 
-        Block(@Nonnull BlockMod block)
+        Block(@Nonnull ModBlock block)
         {
             this.block = block;
         }
 
-        public BlockMod getBlock()
+        public ModBlock getBlock()
         {
             return this.block;
         }
@@ -114,20 +114,14 @@ public class Index
     public enum TileEntity
     {
 
-        MACHINE_GRINDER(TileEntityType.register("evolution:machine/grinder", TileEntityType.Builder.create(TileEntityGrinder::new)));
+        MACHINE_GRINDER("grinder", new TileEntityType(TileEntityGrinder::new, null, null));
 
         private TileEntityType tet;
-        private TileEntityMod te;
 
-        TileEntity(TileEntityType<? extends TileEntityMod> tet)
+        TileEntity(String tileName, TileEntityType<? extends TileEntityMod> tet)
         {
+            tet.setRegistryName(new ResourceLocation(ModInformation.MOD_ID, tileName));
             this.tet = tet;
-            this.te = tet.create();
-        }
-
-        public TileEntityMod getTileEntity()
-        {
-            return this.te;
         }
 
         public TileEntityType<?> getType()
@@ -135,32 +129,27 @@ public class Index
             return this.tet;
         }
 
-        public ResourceLocation getName()
-        {
-            return this.tet.getRegistryName();
-        }
-
     }
 
-    public static class GUI
+    public enum GuiBackground
     {
 
-        public enum Background
-        {
+        GRINDER(new ResourceLocation(ModInformation.MOD_ID, "textures/gui/background/grinder.png"));
 
+        private ResourceLocation loc;
+
+        GuiBackground(ResourceLocation loc)
+        {
+            this.loc = loc;
         }
 
-        public enum Object
+        public ResourceLocation getLocation()
         {
-
-            ;
-
-            Object()
-            {
-            }
-
+            return this.loc;
         }
 
     }
+
+
 
 }

@@ -1,16 +1,16 @@
 package com.randysdoom.evolution.api.transportation.energy.kinetic;
 
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 
 public interface IKineticEnergyProvider extends IKineticEnergyStorage
 {
 
     void transmitEnergy();
 
-    void transmitEnergy(EnumFacing direction);
+    void transmitEnergy(Direction direction);
 
     boolean canProvideEnergy();
 
-    boolean canProvideEnergy(EnumFacing direction);
+    boolean canProvideEnergy(Direction direction);
 
 }

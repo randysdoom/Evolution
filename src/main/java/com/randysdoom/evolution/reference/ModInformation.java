@@ -1,6 +1,6 @@
 package com.randysdoom.evolution.reference;
 
-public class ModInfo
+public class ModInformation
 {
 
     public static final String MOD_ID = "evolution";

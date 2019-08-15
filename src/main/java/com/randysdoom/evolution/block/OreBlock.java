@@ -1,9 +1,9 @@
 package com.randysdoom.evolution.block;
 
-import com.randysdoom.evolution.block.base.BlockMod;
+import com.randysdoom.evolution.block.base.ModBlock;
 import net.minecraft.block.material.Material;
 
-public class OreBlock extends BlockMod
+public class OreBlock extends ModBlock
 {
 
     public OreBlock(String dimension, String oreType)

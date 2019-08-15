@@ -11,4 +11,18 @@ public class TileEntityMod extends TileEntity
         super(tileEntityTypeIn);
     }
 
+    public int getField(int id)
+    {
+        return 0;
+    }
+
+    public void setField(int id, int value)
+    {
+    }
+
+    public int getFieldCount()
+    {
+        return 0;
+    }
+
 }

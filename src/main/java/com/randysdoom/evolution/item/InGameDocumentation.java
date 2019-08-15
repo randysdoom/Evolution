@@ -2,25 +2,23 @@ package com.randysdoom.evolution.item;
 
 import com.google.gson.*;
 import com.randysdoom.evolution.item.base.ModItem;
-import com.randysdoom.evolution.reference.ModInfo;
+import com.randysdoom.evolution.reference.ModInformation;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreenBook;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
-import net.minecraft.network.play.server.SPacketSetSlot;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
+import net.minecraft.nbt.StringNBT;
+import net.minecraft.network.play.server.SSetSlotPacket;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
@@ -39,28 +37,27 @@ public class InGameDocumentation extends ModItem
 
     public InGameDocumentation()
     {
-        super(new Item.Properties().maxStackSize(1), "documentation");
+        super(new Properties().maxStackSize(1), "documentation");
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
     {
         ItemStack itemStack = playerIn.getHeldItem(handIn);
 
-        if(!worldIn.isRemote)
+        if (!worldIn.isRemote)
         {
             this.resolveContents(itemStack, playerIn);
         }
 
-        if(!playerIn.isSneaking())
+        if (!playerIn.isSneaking())
         {
-            Minecraft.getInstance().displayGuiScreen(new GuiScreenBook(playerIn, itemStack, false, handIn));
-            return new ActionResult<>(EnumActionResult.SUCCESS, itemStack);
-        }
-        else
+//            Minecraft.getInstance().displayGuiScreen(new GuiScreenBook(playerIn, itemStack, false, handIn));
+            return new ActionResult<>(ActionResultType.SUCCESS, itemStack);
+        } else
         {
             playerIn.replaceItemInInventory(playerIn.inventory.getSlotFor(itemStack), this.resolveContents(itemStack, playerIn));
-            return new ActionResult<>(EnumActionResult.FAIL, itemStack);
+            return new ActionResult<>(ActionResultType.FAIL, itemStack);
         }
     }
 
@@ -70,33 +67,33 @@ public class InGameDocumentation extends ModItem
         if (flagIn.isAdvanced() && stack.getTag() != null)
         {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            tooltip.add(new TextComponentString(gson.toJson(stack.getTag())));
+            tooltip.add(new StringTextComponent(gson.toJson(stack.getTag())));
         }
     }
 
-    private ItemStack resolveContents(ItemStack itemStack, EntityPlayer player)
+    private ItemStack resolveContents(ItemStack itemStack, PlayerEntity player)
     {
         if (player == null)
         {
-            player = (EntityPlayer) Minecraft.getInstance().getRenderViewEntity();
+            player = (PlayerEntity) Minecraft.getInstance().getRenderViewEntity();
         }
 
         if (itemStack.getTag() == null)
         {
-            NBTTagCompound nbt = new NBTTagCompound();
-            nbt.setString("title", I18n.format("item.documentation.name"));
-            nbt.setString("author", "Evolution Mod");
-            itemStack.setTag(nbt);
+            CompoundNBT nbt = new CompoundNBT();
+            nbt.putString("title", I18n.format("item.documentation.name"));
+            nbt.putString("author", "Evolution Mod");
+            itemStack.deserializeNBT(nbt);
         }
 
-        NBTTagCompound nbt = itemStack.getTag();
+        CompoundNBT nbt = itemStack.getTag();
 
-        if(!nbt.getBoolean("generated"))
+        if (!nbt.getBoolean("generated"))
         {
             try
             {
                 final String MC_VERSION = Minecraft.getInstance().getVersion();
-                final String MOD_VERSION = ModInfo.MOD_VERSION;
+                final String MOD_VERSION = ModInformation.MOD_VERSION;
                 final String DOC_LOC = String.format("https://raw.githubusercontent.com/randysdoom/Evolution/master/documentation/1.10.2/%s/", MOD_VERSION);
                 URL doc_mapping = new URL(DOC_LOC + "index.json");
                 HttpURLConnection request = (HttpURLConnection) doc_mapping.openConnection();
@@ -107,51 +104,57 @@ public class InGameDocumentation extends ModItem
 
                 List<URL> list = new ArrayList<>();
 
-                for(Map.Entry<String, JsonElement> mapping : mappings.entrySet())
+                for (Map.Entry<String, JsonElement> mapping : mappings.entrySet())
                 {
-                    if(!mapping.getKey().equals("") && !mapping.getValue().isJsonNull())
+                    if (!mapping.getKey().equals("") && !mapping.getValue().isJsonNull())
                     {
                         URL pageURL = new URL(DOC_LOC + mapping.getValue().getAsJsonObject().get("location").getAsString() + ".txt");
                         list.add(pageURL);
                     }
                 }
 
-                NBTTagList pages = nbt.getList("pages", 8);
+                ListNBT pages = nbt.getList("pages", 8);
 
-                if(list.size() > 0)
+                if (list.size() > 0)
                 {
-                    for(URL url : list)
+                    for (URL url : list)
                     {
                         StringBuilder pageContents = new StringBuilder();
                         BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 
                         String inputLine;
-                        while((inputLine = reader.readLine()) != null)
+                        while ((inputLine = reader.readLine()) != null)
                         {
                             String text = I18n.format(inputLine);
-                            if(reader.readLine() == null || reader.readLine().equals("")){ text += " \n"; }
+                            if (reader.readLine() == null || reader.readLine().equals(""))
+                            {
+                                text += " \n";
+                            }
                             pageContents.append(text);
                         }
 
-                        pages.add(new NBTTagString(pageContents.toString()));
+                        pages.add(new StringNBT(pageContents.toString()));
                     }
 
-                    nbt.setTag("pages", pages);
-                }
-                else
+                    nbt.put("pages", pages);
+                } else
                 {
-                    pages.add(new NBTTagString(I18n.format("documentation.invalid")));
+                    pages.add(new StringNBT(I18n.format("documentation.invalid")));
                 }
 
-                if (player instanceof EntityPlayerMP && player.getHeldItemMainhand() == itemStack)
+                if (player instanceof ServerPlayerEntity && player.getHeldItemMainhand() == itemStack)
                 {
-                    Slot slot = player.openContainer.getSlotFromInventory(player.inventory, player.inventory.currentItem);
-                    ((EntityPlayerMP)player).connection.sendPacket(new SPacketSetSlot(0, slot.slotNumber, itemStack));
+                    Slot slot = player.openContainer.inventorySlots.get(player.inventory.currentItem);
+                    ((ServerPlayerEntity) player).connection.sendPacket(new SSetSlotPacket(0, slot.slotNumber, itemStack));
                 }
 
+            } catch (IOException ex)
+            {
+                ex.printStackTrace();
+            } finally
+            {
+                nbt.putBoolean("generated", true);
             }
-            catch(IOException ex){ ex.printStackTrace(); }
-            finally{ nbt.setBoolean("generated", true); }
         }
         return itemStack;
     }

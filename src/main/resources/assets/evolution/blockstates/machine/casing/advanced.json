@@ -1,8 +1,7 @@
 {
-  "defaults": {
-    "model": "evolution:block/machine/casing/advanced"
-  },
   "variants": {
-    "": {}
+    "normal": {
+      "model": "evolution:block/machine/casing/advanced"
+    }
   }
 }

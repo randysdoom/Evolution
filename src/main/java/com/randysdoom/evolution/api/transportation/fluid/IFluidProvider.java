@@ -1,16 +1,16 @@
 package com.randysdoom.evolution.api.transportation.fluid;
 
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 
 public interface IFluidProvider extends IFluidStorage
 {
 
     void transferFluid();
 
-    void transferFluid(EnumFacing direction);
+    void transferFluid(Direction direction);
 
     boolean canTransferFluid();
 
-    boolean canTransferFluid(EnumFacing direction);
+    boolean canTransferFluid(Direction direction);
 
 }
