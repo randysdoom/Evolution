@@ -1,11 +1,7 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "textures": {
-      "all": "evolution:blocks/ore/copper/overworld"
-    },
-    "model": "cube_all",
-    "uvlock": true
-  },
-  "variants": {}
+  "variants": {
+    "": {
+      "model": "evolution:block/ore/overworld/copper"
+    }
+  }
 }

@@ -1,7 +1,3 @@
 {
-  "parent": "block/cube_all",
-  "textures":
-  {
-    "all": "evolution:block/ore/tin/overworld"
-  }
+  "parent": "evolution:block/ore/overworld/tin"
 }

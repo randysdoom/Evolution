@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "evolution:blocks/ore/copper/nether"
+      "all": "evolution:block/ore/copper/nether"
     },
     "model": "cube_all",
     "uvlock": true

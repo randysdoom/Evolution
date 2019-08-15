@@ -2,9 +2,9 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "evolution:blocks/ore/bauxite/nether"
+      "all": "evolution:block/ore/bauxite/nether"
     },
-    "model": "cube_all",
+    "model": "block/cube_all",
     "uvlock": true
   },
   "variants": {}

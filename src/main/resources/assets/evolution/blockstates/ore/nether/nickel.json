@@ -2,7 +2,7 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "evolution:blocks/ore/nickel/nether"
+      "all": "evolution:block/ore/nickel/nether"
     },
     "model": "cube_all",
     "uvlock": true
